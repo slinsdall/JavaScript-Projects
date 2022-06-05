@@ -10,5 +10,5 @@ document.write(5 + 6); //This is using an expression
 
 window.alert("This is a string");//This is making an alert box when you open the webpage
 
-
+var A ="Hi"; B ="There"; C = A+B;
 
