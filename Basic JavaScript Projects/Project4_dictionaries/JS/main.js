@@ -3,7 +3,7 @@ function my_Dictionary() {//This function creates a dictionary, Animal is the va
         Species:"Dog",
         Color:"Black",
         Breed:"Labrador",
-        Age: 5;
+        Age: 5,
         Sound:"Bark!"
     };
     delete Animal.Sound;//This deletes a statement
