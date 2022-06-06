@@ -9,3 +9,8 @@ function my_Dictionary() {//This function creates a dictionary, Animal is the va
     delete Animal.Sound;//This deletes a statement
     document.getElementById("Dictionary").innerHTML=Animal.Sound;
 }
+
+document.write(typeof "Word");//Only one document.write can be used at a time
+
+
+
