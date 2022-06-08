@@ -27,8 +27,8 @@ function Person(first, last, age, eye) {
     this.lastName = last;
     this.age = age;
     this.eyeColor = eye;
-    this.break= break;//This shows a restricted word, will not work.
-  }
+   
+}
 
   function count_Function() {
       document.getElementById("Counting").innerHTML = Count();
