@@ -16,7 +16,7 @@ function Vote_Function() {//This function will have input and then display the r
 
 function New_and_This() {
     var Age, Can_Buy;
-    Age =  document.getElementById("Age").value;
+    Age =  document.getElementById("Restricted").value;
     Can_Buy = (Age < 21) ? "You are not old enough to " : "You can";
     document.getElementById("Buy").innerHTML = Can_Buy + " buy alcohol.";
 
