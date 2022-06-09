@@ -9,12 +9,12 @@ function full_sentence() {
 
 function slice_Method() {
     var sentence ="All work and no play makes Johnny a dull boy.";
-    var Section = Sentence.slice(27,33);
+    var Section = sentence.slice(27,33);
     document.getElementById("Slice").innerHTML = Section;
 }
 
-let text = "Hello World!";
-let result = text.toUpperCase();
+let str = "Hello World!";
+let result = str.toUpperCase();
 document.getElementByID("demo").innerHTML = result;
 
 let text = "This is Blue";
@@ -22,8 +22,8 @@ let position = text.search("Blue");
 document.getElementById("search").innerHTML = position;
 
 function string_Method() {
-    var X = 182;
-    document.getElementById("Numbers_to_string").innerHTML = X.toString();
+    var M = 182;
+    document.getElementById("Numbers_to_string").innerHTML = M.toString();
 }
 
 function precision_Method() {
@@ -35,6 +35,6 @@ let num = 5.56789;
 let n = num.toFixed();
 document.getElementById("fixed").innerHTML = n;
 
-let text = "This is value method.";
-let result= text.valueOf();
+let string = "This is value method.";
+let result= string.valueOf();
 document.getElementById("value").innerHTML = result;
