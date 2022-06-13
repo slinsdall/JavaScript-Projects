@@ -36,5 +36,5 @@ let n = num.toFixed();
 document.getElementById("fixed").innerHTML = n;
 
 let string = "This is value method.";
-let result= string.valueOf();
+let rst= string.valueOf();
 document.getElementById("value").innerHTML = result;
