@@ -1,11 +1,33 @@
-let slideIndex = 1;
+function countdown() { // This function is for the alarm we set
+    var seconds = document.getElementById("seconds").value;
+
+    function tick() {
+        seconds = seconds - 1;
+        timer.innerHTML = seconds;
+        var time = setTimeout(tick, 1000);
+        if (seconds == -1) {
+            alert("Times's up!");
+            clearTimeout(time);
+            timer.innerHTML = "";
+        }
+    }
+    tick();
+}
+
+
+
+
+
+
+
+let slideIndex = 1;//This section is for the slideshow
 showSlides(slideIndex);
 
-function plusSlides(n) {
+function plusSlides(n) {//This is to control the Next and Previous function
     showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
+function currentSlide(n) {//This controls the images
     showSlides(SlideIndex = n);
 }
 
