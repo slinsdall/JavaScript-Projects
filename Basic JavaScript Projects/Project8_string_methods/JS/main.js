@@ -15,7 +15,7 @@ function slice_Method() {
 
 let str = "Hello World!";
 let result = str.toUpperCase();
-document.getElementByID("demo").innerHTML = result;
+document.getElementById("demo").innerHTML = result;
 
 let text = "This is Blue";
 let position = text.search("Blue");
@@ -37,4 +37,4 @@ document.getElementById("fixed").innerHTML = n;
 
 let string = "This is value method.";
 let rst= string.valueOf();
-document.getElementById("value").innerHTML = result;
+document.getElementById("value").innerHTML = rst;
