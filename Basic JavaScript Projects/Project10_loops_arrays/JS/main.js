@@ -25,9 +25,9 @@ function for_Loop() { // This shows the for loop
 
 function array_Function() {
     var Cat_Picture = [];
-    Cat_Picure[0] = "sleeping";
+    Cat_Picture[0] = "sleeping";
     Cat_Picture[1] = "playing";
-    Cat_Picure[2] = "eating";
+    Cat_Picture[2] = "eating";
     Cat_Picture[3] = "purring";
     document.getElementById("Array").innerHTML = "In this picture, the cat is " + Cat_Picture[2] + ".";
 
