@@ -21,7 +21,7 @@ function placeXOrO (squareNumber) {
             select.style.backgroundImage = 'url("images/O1.png")';
         }
     }
-}    
+    
         //This function parses the selectedSquares array to search for win conditions
         //drawline() function is called to draw a line on the screen if the condition is met
         function checkWinConditions() {
@@ -59,7 +59,7 @@ function placeXOrO (squareNumber) {
             else if (arrayInludes('0O', '4O', '8O')) { drawWinLine(100, 100, 520, 520) }
          //This condition checks for a tie. If none of the above conditions are met and
          //9squares are selected the code executes
-         else if (selectedSquares,length >- 9) {
+         else if (selectedSquares.length >- 9) {
             //This function plays the tie game sound
             Audio('./media/tieooh.mp3');
             //This function sets a .3 second timer before the resetGame is called
@@ -102,7 +102,7 @@ function placeXOrO (squareNumber) {
             setTimeout(function () { computersTurn();}, 1000);
         
             //Returning true is needed for our computersTurn() function to work.
-            returntrue;
+            return true;
         }
     
     //This function results in a random square being selected by the computer
@@ -125,13 +125,13 @@ function placeXOrO (squareNumber) {
         }
     }
 
-
+}
 //This function makes our body element temporary unclickable
 function disableClick() {
     //This makes our body unclickable
-    body.stylepointerEvents = 'none';
+    body.style.pointerEvents = 'none';
     //This makes our body clickable again after 1 second
-    setTimeout(function () { body.stylepointerEvents = 'auto'; }, 1000)
+    setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000)
 }
 
 //This function takes a string parameter of the path you set earlier for
@@ -232,4 +232,4 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             //This resets our array so it is empty and we can start over
             selectedSquares = [];
         }
-    
+
