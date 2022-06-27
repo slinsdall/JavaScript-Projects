@@ -22,7 +22,73 @@ function placeXOrO (squareNumber) {
         }
     }
     
-        //This function parses the selectedSquares array to search for win conditions
+        
+         //This function checks if an array includes 3 strings. It is used to check for each win condition
+         function arrayIncludes(squareA, squareB, squareC) {
+            //These 3 variables will be used to check for 3 in a row
+            const a = selectedSquares.includes(squareA);
+            const b = selectedSquares.includes(squareB);
+            const c = selectedSquares.includes(squareC);
+            //If the 3 variables we pass are all included in our array then
+            //true is returned and our else if condition executes the drawLine() function
+            if (a === true && b == true && c == true) {return true;}
+         }
+        }
+        //squareNumber and activePlayer are concatenated together and added to array.
+        selectedSquares.push(squareNumber + activePlayer);
+        //This calls a function to check for any win conditions.
+        checkWinConditions();
+        //This condition is for changing the active player.
+        if (activePlayer === 'X') {
+            //If active player is X change to O
+            activePlayer = 'O';
+            //if active player is anything other than X
+        } else {
+            //change the activePlayer to X
+            activePlayer = 'X';
+        }
+
+
+        //This function plays placement sound,
+        Audio('./media/place.mp3');
+        //This condition checks to see if it is the computers turn
+        if (activePlayer === 'O') {
+            //This function disables clicking for computers turn.
+            disableClick();
+            //This function waits 1 second before the computer places an image and enables click
+            setTimeout(function () { computersTurn();}, 1000);
+        
+            //Returning true is needed for our computersTurn() function to work.
+            returntrue;
+        }
+    
+    //This function results in a random square being selected by the computer
+    function computersTurn() {
+        //The boolean is needed for our while loop.
+        let success = false;
+        //This variable stores a random number 0-8
+        let pickASquare;
+        //This condition allows our while loop to keep trying if a square is selected already
+        while (!success) {
+            //A random number between 0 and 8 is selected
+            pickASquare = String(Math.floor(Math.random() * 9));
+            //If the random number evaluated returns true, the square hasn't been selected yet
+            if (placeXOrO(pickASquare)) {
+                //This line calls the function
+                placeXOrO(pickASquare);
+                //This changes our boolean and ends the loop
+                success = true;
+            };
+        }
+    
+
+}
+
+
+
+
+
+//This function parses the selectedSquares array to search for win conditions
         //drawline() function is called to draw a line on the screen if the condition is met
         function checkWinConditions() {
             // X 0, 1, 2 condition
@@ -65,67 +131,6 @@ function placeXOrO (squareNumber) {
             //This function sets a .3 second timer before the resetGame is called
             setTimeout(function () { resetGame(); }, 500);
          }
-
-         //This function checks if an array includes 3 strings. It is used to check for each win condition
-         function arrayIncludes(squareA, squareB, squareC) {
-            //These 3 variables will be used to check for 3 in a row
-            const a = selectedSquares.includes(squareA);
-            const b = selectedSquares.includes(squareB);
-            const c = selectedSquares.includes(squareC);
-            //If the 3 variables we pass are all included in our array then
-            //true is returned and our else if condition executes the drawLine() function
-            if (a === true && b == true && c == true) {return true;}
-         }
-        }
-        //squareNumber and activePlayer are concatenated together and added to array.
-        selectedSquares.push(squareNumber + activePlayer);
-        //This calls a function to check for any win conditions.
-        checkWinConditions();
-        //This condition is for changing the active player.
-        if (activePlayer === 'X') {
-            //If active player is X change to O
-            activePlayer = 'O';
-            //if active player is anything other than X
-        } else {
-            //change the activePlayer to X
-            activePlayer = 'X';
-        }
-
-
-        //This function plays placement sound,
-        Audio('./media/place.mp3');
-        //This condition checks to see if it is the computers turn
-        if (activePlayer === 'O') {
-            //This function disables clicking for computers turn.
-            disableClick();
-            //This function waits 1 second before the computer places an image and enables click
-            setTimeout(function () { computersTurn();}, 1000);
-        
-            //Returning true is needed for our computersTurn() function to work.
-            return true;
-        }
-    
-    //This function results in a random square being selected by the computer
-    function computersTurn() {
-        //The boolean is needed for our while loop.
-        let success = false;
-        //This variable stores a random number 0-8
-        let pickASquare;
-        //This condition allows our while loop to keep trying if a square is selected already
-        while (!success) {
-            //A random number between 0 and 8 is selected
-            pickASquare = String(Math.floor(Math.random() * 9));
-            //If the random number evaluated returns true, the square hasn't been selected yet
-            if (placeXOrO(pickASquare)) {
-                //This line calls the function
-                placeXOrO(pickASquare);
-                //This changes our boolean and ends the loop
-                success = true;
-            };
-        }
-    }
-
-}
 //This function makes our body element temporary unclickable
 function disableClick() {
     //This makes our body unclickable
@@ -161,7 +166,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         x = x1,
         //This variable stores temporary y axis data we update in our animation loop.
         y = y1;
-}
+
 
         //This function interacts with the canvas.
         function animateLineDrawing() {
@@ -199,6 +204,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
                 if ( x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
             }
         }
+}
 
         //This function clears our canvas after our win line is drawn
         function clear() {
@@ -233,3 +239,4 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             selectedSquares = [];
         }
 
+    }
