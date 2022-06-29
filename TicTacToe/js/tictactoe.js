@@ -40,7 +40,7 @@ function placeXOrO(squareNumber) {
             //This function disables clicking for computers turn
             disableClick();
             //This function waits 1 second before the computer places an image and enables click
-            setTimeout(function () { conputersTurn(); }, 1000);
+            setTimeout(function () { computersTurn(); }, 1000);
         }
         //Returning true is needed for our computersTurn() function to work
         return true;
@@ -141,7 +141,7 @@ function audio(audioURL) {
 }
 
 //This function utilizes HTML canvas to draw win Lines.
-function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
+function drawLine(coordX1, coordY1, coordX2, coordY2) {
     //This line accesses our HTML canvas element.
     const canvas = document.getElementById('win-lines');
     //This line gives us access to methods and properties to use on canvas
@@ -165,11 +165,11 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         //This variable creates a loop
         const animationLoop = requestAnimationFrame(animateLineDrawing);
         //This method clears content from the last loop iteration
-        c,clearRect(0, 0, 608, 608);
+        c.clearRect(0, 0, 608, 608);
         //This method starts a new path
         c.beginPath();
         //This method moves us to a starting point in our line
-        c.moveTo(x, y1);
+        c.moveTo(x1, y1);
         //This method indicates the end point in our line
         c.lineTo(x, y);
         //This method sets the width of our line
