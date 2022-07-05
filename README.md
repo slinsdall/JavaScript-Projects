@@ -5,8 +5,11 @@ This contains files from using JavaScript throughout the course.
 Here are a few of the projects I completed:
 
 *Calculator
+
 *Tic Tac Toe
+
 *Pizza Menu
+
 *One Page Website
 
 Calculator
